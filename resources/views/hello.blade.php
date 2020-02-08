@@ -12,6 +12,6 @@
         <!-- Styles -->
     </head>
     <body>
-        Laravel
+        Hello
     </body>
 </html>
