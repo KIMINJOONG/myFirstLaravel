@@ -36,4 +36,36 @@ return view('welcome')->withBooks($books);
 
 ```
 
+## controller 분리
+
+-   스프링이든 노드 express프레임웤을 이용하든 mvc패턴을 활용해 개발을 하다보면 컨트롤러를 분리해야한다. 한파일에 다 넣게되면 코드가 엄청나게 길어지니까
+    라라벨에서 컨트롤러 분리하는법을 알아봅시다.
+-   php artisan make:controller 컨트롤러이름 ex) php artisan make:controller HomeController
+
+```
+HoemController
+
+class HomeController extends Controller
+{
+    public function index() {
+            $books = [
+                'Harry Potter',
+                'Laravel'
+            ];
+            return view('welcome', [
+                'books' => $books
+            ]);
+            // return view('welcome')->with([
+            //     'books' => $books
+            // ]);
+            // return view('welcome')->withBooks($books);
+    }
+}
+
+web.php
+
+Route::get('/', 'HomeController@index'); -> HomeController.php안에 함수이름이 index인 함수를 실행해라
+
+```
+
 보통은 첫번째를 주로 많이 쓰고 그다음 두번째를 쓴다 3번째는 잘 안쓴다고 한다.
