@@ -1,4 +1,4 @@
-# 라라벨 강좌를 들으며 공부해보기
+# 라라벨 강좌를 들으며 라라벨의 기본을 공부해보자
 
 -   서버실행 명령어 php artisan serve
 
@@ -18,3 +18,22 @@
 ## blade템플릿이란?
 
 -   라라벨에서 제공하는 기본적인 뷰 템플릿
+-   web.php에서 view로 데이터를 포함시켜서 보낼때 3가지 방법이 있다.
+
+```
+1. 첫번째방법 :
+return view('welcome')->with([
+    'books' => $books
+]);
+
+2. 두번째 방법 :
+return view('welcome', [
+    'books' => $books
+]);
+
+3. 세번째 방법 :
+return view('welcome')->withBooks($books);
+
+```
+
+보통은 첫번째를 주로 많이 쓰고 그다음 두번째를 쓴다 3번째는 잘 안쓴다고 한다.
