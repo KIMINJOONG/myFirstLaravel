@@ -1,10 +1,10 @@
 @extends('layout')
 
 @section('title')
-    Welcome
+    Contact
 @endsection
 
 
 @section('content')
-    Welcome
+    Contact
 @endsection
