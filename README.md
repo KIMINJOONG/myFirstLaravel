@@ -36,6 +36,8 @@ return view('welcome')->withBooks($books);
 
 ```
 
+-   보통은 첫번째를 주로 많이 쓰고 그다음 두번째를 쓴다 3번째는 잘 안쓴다고 한다.
+
 ## controller 분리
 
 -   스프링이든 노드 express프레임웤을 이용하든 mvc패턴을 활용해 개발을 하다보면 컨트롤러를 분리해야한다. 한파일에 다 넣게되면 코드가 엄청나게 길어지니까
@@ -76,4 +78,8 @@ Route::get('/', 'HomeController@index'); -> HomeController.php안에 함수이�
    php artisan migrate:rollback -> 생성한 테이블 전부 제거됨
    php artisan migrate:fresh -> 데이터베이스를 다 밀고 다시 실행한다는 뜻
 
-보통은 첫번째를 주로 많이 쓰고 그다음 두번째를 쓴다 3번째는 잘 안쓴다고 한다.
+2) 테이블 생성 구문 php artisan make:migration create_projects_table
+
+-   테이블명은 복수형으로 써주는게 컨벤션
+
+php artisan make:model Project
