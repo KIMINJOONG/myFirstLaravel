@@ -83,3 +83,8 @@ Route::get('/', 'HomeController@index'); -> HomeController.php안에 함수이�
 -   테이블명은 복수형으로 써주는게 컨벤션
 
 php artisan make:model Project
+
+## tailwind설치
+
+-   npm을 사용하여 tailwindcss를 install해주고 공식문서에 설치가이드를 따라해주면된다. webpack.mix.js에서 추가해주는거 꼭 해주기
+-   그후 npm run dev명령어를 이용하면 webpack.mix.js에 설정되있는 파일들을 컴파일해준다
