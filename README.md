@@ -68,4 +68,12 @@ Route::get('/', 'HomeController@index'); -> HomeController.php안에 함수이�
 
 ```
 
+## db연결과 마이그레이션
+
+-   database > migrations안에는 테이블 구조들이 정의되어있다. 새롭게 정의하고싶다면 기존의 파일을 참고하여 만들면 된다.
+
+1. php artisan migrate -> 쿼리구문실행 테이블이 생성됨
+   php artisan migrate:rollback -> 생성한 테이블 전부 제거됨
+   php artisan migrate:fresh -> 데이터베이스를 다 밀고 다시 실행한다는 뜻
+
 보통은 첫번째를 주로 많이 쓰고 그다음 두번째를 쓴다 3번째는 잘 안쓴다고 한다.
