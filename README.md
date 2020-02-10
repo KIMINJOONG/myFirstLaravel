@@ -88,3 +88,7 @@ php artisan make:model Project
 
 -   npm을 사용하여 tailwindcss를 install해주고 공식문서에 설치가이드를 따라해주면된다. webpack.mix.js에서 추가해주는거 꼭 해주기
 -   그후 npm run dev명령어를 이용하면 webpack.mix.js에 설정되있는 파일들을 컴파일해준다
+
+---
+
+-   php artisan make:model 모델명 -c -m 이렇게 하면 라라벨에서 추천하는 방식으로 모델과 컨트롤러 마이그레이션을 할 수 있습니다.
