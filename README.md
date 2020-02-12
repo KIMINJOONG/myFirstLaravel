@@ -92,3 +92,23 @@ php artisan make:model Project
 ---
 
 -   php artisan make:model 모델명 -c -m 이렇게 하면 라라벨에서 추천하는 방식으로 모델과 컨트롤러 마이그레이션을 할 수 있습니다.
+
+## 동적 url
+
+-   node에서는 /tasks/:id 였지만 라라벨은 아래와 같다.
+
+```
+Route::get('/tasks/{task}', 'TaskController@show');
+```
+
+-   컨트롤러 함수에서 $task만 사용하면 param값이 나오는데, 앞에 Task 즉 모델명을 붙여주면 라라벨에서 인식을하여 해당 $task값을 가지고있는 db값 전체를 가져옴
+
+```
+TaskController
+
+public function show(Task $task) {
+        return view('tasks.show', [
+            'task'=> $task
+        ]);
+    }
+```
