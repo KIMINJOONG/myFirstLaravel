@@ -8,7 +8,7 @@ use App\Task;
 class TaskController extends Controller
 {
     public function index() {
-        $tasks = Task::all();
+        $tasks = Task::latest()->get();
         return view('tasks.index', [
             'tasks' => $tasks
         ]);
@@ -45,5 +45,12 @@ class TaskController extends Controller
             'body'=> request('body')
         ]);
         return redirect('/tasks/'.$task->id);
+    }
+
+
+    public function destroy(Task $task) {
+        $task->delete();
+
+        return redirect('/tasks');
     }
 }

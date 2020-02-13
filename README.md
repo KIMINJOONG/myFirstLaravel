@@ -112,3 +112,9 @@ public function show(Task $task) {
         ]);
     }
 ```
+
+---
+
+## php artisan tinker?
+
+-   play gorund환경이 실행됨. App\Task::all같은 함수들을 실행시 결과를 터미널에서 바로 볼 수 있다.
