@@ -118,3 +118,39 @@ public function show(Task $task) {
 ## php artisan tinker?
 
 -   play gorund환경이 실행됨. App\Task::all같은 함수들을 실행시 결과를 터미널에서 바로 볼 수 있다.
+
+---
+
+## 서버에서 validation
+
+-   아래와 같이 해주면 title과 body값이 존재하지 않을시 에러를 리턴해줌
+
+```
+
+request()->validate([
+            'title' => 'required',
+            'body' => 'required'
+]);
+```
+
+-   리턴해준 에러는 어떻게 해야할까?
+
+```
+.blade.php에서
+
+@if($errors->any())
+            {{ $errors }}
+@endif
+
+아래 구문을 넣고 에러를 발생시켜보면 리턴되는것을 알 수 있습니다.
+특정에러에 대한 메세지만 보여주고싶다면 다음과 같이 하면 됩니다.
+
+@error('body')
+    <small class="text-red-700">{{ $message }}</small>
+@enderror
+
+혹은 html태그 클래스 안에 아래와 같이 추가하여 에러 발생시 보더 색을 변경한다던지 특정 css를 입힐수있습니다. 아래는 body라는 값이 없어서 서버에서 에러를 리턴하였을때
+border색을 빨간색으로 변경시켜주게 만든 예시입니다.
+<input class="border border-gray-800 w-full @error('body') border-red-700 @enderror" />
+
+```
