@@ -154,3 +154,10 @@ border색을 빨간색으로 변경시켜주게 만든 예시입니다.
 <input class="border border-gray-800 w-full @error('body') border-red-700 @enderror" />
 
 ```
+
+## 로그인
+
+-   6부터 make:auth 가 대체되었습니다
+    composer require laravel/ui
+    php artisan ui vue --auth
+    npm install
