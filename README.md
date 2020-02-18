@@ -161,3 +161,15 @@ border색을 빨간색으로 변경시켜주게 만든 예시입니다.
     composer require laravel/ui
     php artisan ui vue --auth
     npm install
+
+## 참조키 만들어주는법
+
+-   아래는 나중에 조인등에 필요한 참조키를 만드는 방법이다,
+
+```
+2020_02_10_140315_create_tasks_table.php
+
+
+$table->unsignedBigInteger('user_id'); // user_id라는 컬럼을 만들어주고
+$table->foreign('user_id')->references('id')->on('users'); // users테이블에 id값을 참조해라는 얘기이다.
+```
