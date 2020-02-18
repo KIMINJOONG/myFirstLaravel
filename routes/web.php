@@ -24,16 +24,16 @@ Route::prefix('tasks')->middleware('auth')->group(function() {
 
     Route::get('/create', 'TaskController@create');
 
-    Route::post('/tasks', 'TaskController@store');
-
     Route::get('/{task}', 'TaskController@show');
 
     Route::get('/{task}/edit', 'TaskController@edit');
-
-    Route::put('/{task}', 'TaskController@update');
-
-    Route::delete('/{task}', 'TaskController@destroy');
 });
+
+Route::post('/tasks', 'TaskController@store');
+
+Route::put('/{task}', 'TaskController@update');
+
+Route::delete('/{task}', 'TaskController@destroy');
 
 Auth::routes();
 
