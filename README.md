@@ -173,3 +173,17 @@ border색을 빨간색으로 변경시켜주게 만든 예시입니다.
 $table->unsignedBigInteger('user_id'); // user_id라는 컬럼을 만들어주고
 $table->foreign('user_id')->references('id')->on('users'); // users테이블에 id값을 참조해라는 얘기이다.
 ```
+
+## 권한을 체크하는 여러가지 방법
+
+```
+if(auth()->id() != $task->user_id) {
+    abort(403);
+}
+
+abort_if(auth()->id() != $task->user_id, 403);
+
+abort_if(!auth()->user()->owns($task), 403);
+
+abort_unless(auth()->user()->owns($task), 403);
+```

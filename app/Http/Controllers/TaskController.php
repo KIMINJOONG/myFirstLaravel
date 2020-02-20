@@ -38,6 +38,16 @@ class TaskController extends Controller
     }
 
     public function show(Task $task) {
+        // if(auth()->id() != $task->user_id) {
+        //     abort(403);
+        // }
+
+        // abort_if(auth()->id() != $task->user_id, 403);
+
+        // abort_if(!auth()->user()->owns($task), 403);
+
+        abort_unless(auth()->user()->owns($task), 403);
+
         return view('tasks.show', [
             'task'=> $task
         ]);
@@ -50,6 +60,7 @@ class TaskController extends Controller
     }
 
     public function update(Task $task) {
+        abort_unless(auth()->user()->owns($task), 403);
         request()->validate([
             'title' => 'required',
             'body' => 'required'
