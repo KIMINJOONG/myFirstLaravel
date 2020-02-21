@@ -187,3 +187,27 @@ abort_if(!auth()->user()->owns($task), 403);
 
 abort_unless(auth()->user()->owns($task), 403);
 ```
+
+## 라우팅
+
+```
+Route::prefix('tasks')->middleware('auth')->group(function() {
+    Route::get('/', 'TaskController@index');
+
+    Route::get('/create', 'TaskController@create');
+
+    Route::get('/{task}', 'TaskController@show');
+
+    Route::get('/{task}/edit', 'TaskController@edit');
+
+    Route::post('/tasks', 'TaskController@store');
+
+    Route::put('/{task}', 'TaskController@update');
+});
+```
+
+-   위와같이 일일히 만들어주는것보다 라라벨에서 권장하는 방식대로 rest하게 라우팅을 해줬다면 아래와같이 resource로 해주면 모두 자동으로 완성시켜줌.
+
+```
+Route::resource('tasks', 'TaskController')->middleware('auth');
+```

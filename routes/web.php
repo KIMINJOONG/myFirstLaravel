@@ -19,19 +19,8 @@ Route::get('/contact', 'HomeController@contact');
 
 Route::get('/projects', 'ProjectController@index');
 
-Route::prefix('tasks')->middleware('auth')->group(function() {
-    Route::get('/', 'TaskController@index');
+Route::resource('tasks', 'TaskController')->middleware('auth');
 
-    Route::get('/create', 'TaskController@create');
-
-    Route::get('/{task}', 'TaskController@show');
-
-    Route::get('/{task}/edit', 'TaskController@edit');
-});
-
-Route::post('/tasks', 'TaskController@store');
-
-Route::put('/{task}', 'TaskController@update');
 
 Route::delete('/{task}', 'TaskController@destroy');
 
