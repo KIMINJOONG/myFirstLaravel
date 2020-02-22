@@ -211,3 +211,21 @@ Route::prefix('tasks')->middleware('auth')->group(function() {
 ```
 Route::resource('tasks', 'TaskController')->middleware('auth');
 ```
+
+## 모델관계
+
+-   태스크는 하나의 유저를 가지고있다. Task.php
+
+```
+public function user() {
+        return $this->belongsTo(User::class);
+}
+```
+
+-   유저는 여러개의 테스크를 가진다. User.php
+
+```
+public function tasks() {
+        return $this->hasMany(Task::class);
+}
+```

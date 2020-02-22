@@ -8,7 +8,9 @@ use App\Task;
 class TaskController extends Controller
 {
     public function index() {
-        $tasks = Task::latest()->where('user_id', auth()->id())->get();
+        // 로그인을 한 유저가 가진 태스크들을 최신순으로 가져와달라
+        $tasks = auth()->user()->tasks()->latest()->get();
+        // $tasks = Task::latest()->where('user_id', auth()->id())->get();
         return view('tasks.index', [
             'tasks' => $tasks
         ]);
